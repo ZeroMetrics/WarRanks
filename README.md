@@ -27,7 +27,7 @@ Kaldorei. Purely cosmetic, just changes the displayed titles, everything else st
 ## Install
 
 Put the `WarRanks` folder in your RimWorld `Mods` folder, then in the mod list enable Harmony
-above War Ranks.
+above War Ranks. I will put it on steam soon.
 
 ## Building
 
