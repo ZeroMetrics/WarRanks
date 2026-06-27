@@ -33,10 +33,10 @@ namespace WarRanks
     public static class WarRankTitles
     {
         // ===========================================================================
-        // to add a race: copy one of the blocks below, give it a unique Id (no spaces -
+        // to add a set: copy one of the blocks below, give it a unique Id (no spaces -
         // it's what gets saved), a Label (free text, shown in options), and 24 titles in
-        // rank order from Scout up to Grand High Warlord. that's the whole job - the
-        // settings screen and everything else pick it up automatically.
+        // rank order from rank 1 up to rank 24. the settings screen and everything else
+        // pick it up automatically, nothing else to touch.
         // ===========================================================================
         public static readonly WarRankTitleSet[] All =
         {
@@ -49,32 +49,81 @@ namespace WarRanks
                 "Warlord", "High Warlord", "Grand High Warlord"
             }),
 
-            new WarRankTitleSet("Sindorei", "Sindorei", new[]
+            new WarRankTitleSet("Kaldorei", "Kaldorei / Night Elf", new[]
             {
-                "Sun Scout", "Sunblade Recruit", "Sunblade Adept", "Spellguard", "Senior Spellguard",
-                "Master Spellguard", "Phoenix Guard", "Bloodwarder", "Sun Knight", "Sun Lieutenant",
-                "Sun Captain", "Sun Champion", "Magister", "Spellbreaker", "Dawn Champion",
-                "Lieutenant Ranger", "Ranger Commander", "Dawn General", "Sun General", "Blood Marshal",
-                "Phoenix Marshal", "Sun Warlord", "High Sun Warlord", "Grand Phoenix Warlord"
+                "Ashen Scout", "Grove Watcher", "Huntress", "Moonlit Outrider", "Silverwing Scout",
+                "Grove Sentinel", "Silverleaf Sentinel", "Sentinel Lieutenant", "Sentinel Captain",
+                "Shadowstalker", "Nightsaber Rider", "Ranger", "High Ranger", "Moonblade",
+                "Moonblade Captain", "Warden Initiate", "Warden", "Archwarden", "Ancient Protector",
+                "Wildhunt Champion", "Blade of Elune", "Wrath of the Moon", "Avatar of Vengeance",
+                "Chosen of Elune"
             }),
 
-            new WarRankTitleSet("Kaldorei", "Kaldorei", new[]
+            new WarRankTitleSet("Sindorei", "Sin'dorei / Blood Elf", new[]
             {
-                "Moon Scout", "Sentinel Recruit", "Sentinel", "Glaive Sergeant", "Senior Sentinel",
-                "Master Sentinel", "Grove Guard", "Moon Guard", "Moon Knight", "Moon Lieutenant",
-                "Moon Captain", "Moon Champion", "Warden", "Sentinel Legionnaire", "Grove Champion",
-                "Lieutenant Huntress", "Huntress Commander", "Moon General", "Sentinel General",
-                "Moon Marshal", "Field Sentinel", "Grove Warlord", "High Moon Warlord", "Grand Moon Warlord"
+                "Scout", "Arcane Initiate", "Sunblade Recruit", "Spellguard", "Farstrider",
+                "Veteran Farstrider", "Sunfury Adept", "Blood Knight", "Blood Knight Captain",
+                "Blood Knight Champion", "Magister's Elite", "Sunreaver", "Phoenix Guard",
+                "Phoenix Elite", "Sunwell Defender", "Arcane Champion", "High Spellbreaker",
+                "Dawnblade Commander", "Sunfury Commander", "Blood Knight Lord", "Magister Ascendant",
+                "Phoenix Lord", "Sunwell's Chosen", "Phoenix Ascendant"
             }),
 
-            // ---- template: uncomment, rename, and fill in 24 titles to add your own ----
-            // new WarRankTitleSet("Orcish", "Orcish", new[]
-            // {
-            //     "rank 1", "rank 2", "rank 3", "rank 4", "rank 5", "rank 6",
-            //     "rank 7", "rank 8", "rank 9", "rank 10", "rank 11", "rank 12",
-            //     "rank 13", "rank 14", "rank 15", "rank 16", "rank 17", "rank 18",
-            //     "rank 19", "rank 20", "rank 21", "rank 22", "rank 23", "rank 24"
-            // }),
+            new WarRankTitleSet("Forsaken", "Forsaken / Undead", new[]
+            {
+                "Grave Fodder", "Rotguard", "Deathguard", "Dark Ranger", "Blightcaller",
+                "Grave Warden", "Apothecary's Hand", "Plague Lord", "Banshee's Guard", "Dreadblade",
+                "Deathdealer", "Crypt Champion", "Deathstalker", "Royal Apothecary", "Banshee Champion",
+                "Plague Marshal", "Dread Commander", "Deathguard Lord", "Shadow Apothecary",
+                "Lord of Blight", "Banshee's Chosen", "Champion of the Forsaken",
+                "Herald of the Banshee Queen", "Hand of Ruin"
+            }),
+
+            new WarRankTitleSet("Orc", "Orc / Horde", new[]
+            {
+                "Blooded", "Warscout", "Warrior", "Raider", "Wolf Rider", "Clan Guard",
+                "Blademaster's Disciple", "Berserker", "Warsong Outrider", "Warbringer", "Clan Champion",
+                "Kor'kron", "Blademaster", "War Captain", "Horde Champion", "War Commander",
+                "Chieftain's Blade", "Warchief's Guard", "Conqueror", "Overlord", "Warlord",
+                "High Overlord", "High Warlord", "Hand of the Warchief"
+            }),
+
+            new WarRankTitleSet("Human", "Human / Alliance", new[]
+            {
+                "Militia Scout", "Footman", "Shieldbearer", "Sergeant", "Veteran Footman",
+                "Knight Aspirant", "Knight", "Knight-Lieutenant", "Knight-Captain", "Knight-Champion",
+                "Lionguard", "Stormwind Champion", "Lieutenant Commander", "Commander", "Lord Commander",
+                "Marshal", "High Marshal", "Field Marshal", "Grand Marshal", "Lionheart Commander",
+                "King's Shield", "Alliance Vanguard", "Champion of Stormwind", "Lion of the Alliance"
+            }),
+
+            new WarRankTitleSet("Illidari", "Illidari / Demon Hunter", new[]
+            {
+                "Outcast", "Initiate Hunter", "Felblade", "Glaivebearer", "Demon Stalker", "Felblooded",
+                "Soulhunter", "Illidari Adept", "Illidari Guard", "Illidari Veteran", "Fel Champion",
+                "Demonbane", "Warglaive Master", "Chaos Reaver", "Nether Stalker", "Fel Commander",
+                "Slayer of Demons", "Illidari Champion", "Vengeful Blade", "Herald of Chaos", "Wrathbound",
+                "Chosen of the Betrayer", "Lord of the Hunt", "The Betrayer's Wrath"
+            }),
+
+            new WarRankTitleSet("Scourge", "Scourge / Death Knight", new[]
+            {
+                "Gravebound", "Boneguard", "Runeblade", "Frostblade", "Deathcharger", "Acherus Guard",
+                "Plague Knight", "Blood Knight", "Frost Knight", "Unholy Champion", "Runeblade Champion",
+                "Deathbringer", "Scourge Captain", "Reaper", "Bonelord", "Deathlord's Hand",
+                "Frostbound Commander", "Champion of Acherus", "Rune Lord", "Lord of Bones",
+                "Herald of Death", "High Deathlord", "Wrath of Acherus", "The Lich King's Champion"
+            }),
+
+            new WarRankTitleSet("BlackEmpire", "Black Empire / Old Gods / Void", new[]
+            {
+                "Whispered One", "Void-Touched", "Faceless Initiate", "Whispered", "Mindbreaker",
+                "Mawguard", "Black Blade", "Darkheart", "Herald's Fang", "Void Champion", "Faceless One",
+                "Watcher of the Deep", "High Speaker", "Eye of Madness", "Harbinger of Whispers",
+                "Maw of the Void", "Black Empire Champion", "Wrath of N'Zoth", "Chosen of C'Thun",
+                "Yogg-Saron's Hand", "Herald of the Black Empire", "Avatar of Madness",
+                "The Thousandth Eye", "Void Incarnate"
+            }),
         };
 
         // the set used when settings haven't loaded yet, or a saved id no longer exists. also the
