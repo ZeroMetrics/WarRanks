@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <RootNamespace>WarRanks</RootNamespace>
+    <AssemblyName>WarRanks</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <LangVersion>7.3</LangVersion>
+    <Optimize>true</Optimize>
+    <!-- drops the built dll straight into WarRanks/Assemblies so the game picks it up -->
+    <OutputPath>..\..\Assemblies\</OutputPath>
+    <!-- override these two from the command line if your install lives somewhere else, e.g.
+         msbuild /p:RimWorldDir="D:\Games\RimWorld" -->
+    <RimWorldDir Condition=" '$(RimWorldDir)' == '' ">C:\Program Files (x86)\Steam\steamapps\common\RimWorld</RimWorldDir>
+    <HarmonyDir Condition=" '$(HarmonyDir)' == '' ">C:\Program Files (x86)\Steam\steamapps\workshop\content\294100\2009463077\Current</HarmonyDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- all references are game/library dlls, never copied into the mod (Private=False) -->
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(RimWorldDir)\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>$(RimWorldDir)\RimWorldWin64_Data\Managed\UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(RimWorldDir)\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>$(RimWorldDir)\RimWorldWin64_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="netstandard">
+      <HintPath>$(RimWorldDir)\RimWorldWin64_Data\Managed\netstandard.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>$(HarmonyDir)\Assemblies\0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="WarRanksMod.cs" />
+    <Compile Include="WarRanksSettings.cs" />
+    <Compile Include="WarRankTitleSet.cs" />
+    <Compile Include="Hediff_WarRank.cs" />
+    <Compile Include="WarRankData.cs" />
+    <Compile Include="WarRankUtility.cs" />
+    <Compile Include="WarRankHediffUtility.cs" />
+    <Compile Include="GameComponent_WarRanks.cs" />
+    <Compile Include="WarRankOverlayDrawer.cs" />
+    <Compile Include="HarmonyPatches.cs" />
+  </ItemGroup>
+</Project>

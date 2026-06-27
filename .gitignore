@@ -1,0 +1,9 @@
+# visual studio / msbuild intermediates
+[Bb]in/
+[Oo]bj/
+.vs/
+*.user
+*.suo
+*.userprefs
+
+# keep Assemblies/*.dll committed so the repo is drop-in usable without building
