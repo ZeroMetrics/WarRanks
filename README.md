@@ -21,8 +21,9 @@ earned without spamming the log.
 
 ## Settings
 
-There are three name sets you can pick in mod options: Unified (plain military), Sindorei and
-Kaldorei. Purely cosmetic, just changes the displayed titles, everything else stays the same.
+You can pick a rank name set in mod options. Purely cosmetic, it just changes the titles shown,
+everything else stays the same. The sets live in `Source/WarRanks/WarRankTitleSet.cs` and adding
+your own is a single block (an id, a label, and 24 names) - there's a template in that file.
 
 ## Install
 

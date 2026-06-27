@@ -30,12 +30,12 @@ namespace WarRanks
             listing.Begin(inRect);
 
             listing.Label("Rank title set");
-            foreach (WarRankTitleSet titleSet in WarRankTitles.AllTitleSets)
+            foreach (WarRankTitleSet titleSet in WarRankTitles.AllSets)
             {
                 // RadioButton returns true only on the click, so we only write settings then.
-                if (listing.RadioButton(WarRankTitles.LabelFor(titleSet), Settings.TitleSet == titleSet))
+                if (listing.RadioButton(titleSet.Label, Settings.TitleSetId == titleSet.Id))
                 {
-                    Settings.TitleSet = titleSet;
+                    Settings.TitleSetId = titleSet.Id;
                     Settings.Write();
                 }
             }
