@@ -11,8 +11,7 @@ uses numbers the game already keeps. Animal kills don't count, so nobody ranks u
 or butchering.
 
 Higher ranks are hediffs with gradually bigger buffs (social, pain resistance, mental break
-resistance, and from rank 12 up a little shooting/melee/manipulation/sight). Rank 24 tops out at
-Social Impact +35%, Pain Shock +50%, Mental Break -20%, Shooting/Melee +10%, Manip/Sight +10%.
+resistance, and from rank 12 up a little shooting/melee/manipulation/sight). I kept it moderate.
 
 A small rank icon shows above a colonist while they're selected or drafted (hover it for the
 title and kill count), and you get a message when someone earns a promotion.
