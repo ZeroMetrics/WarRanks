@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using HarmonyLib;
 using UnityEngine;
 using Verse;
@@ -30,14 +31,22 @@ namespace WarRanks
             listing.Begin(inRect);
 
             listing.Label("Rank title set");
-            foreach (WarRankTitleSet titleSet in WarRankTitles.AllSets)
+
+            // a dropdown rather than a row of radio buttons - with nine sets a list would eat the
+            // whole window. the button shows the current set; clicking it drops a menu of the rest.
+            if (listing.ButtonText(WarRankTitles.Current.Label))
             {
-                // RadioButton returns true only on the click, so we only write settings then.
-                if (listing.RadioButton(titleSet.Label, Settings.TitleSetId == titleSet.Id))
+                List<FloatMenuOption> options = new List<FloatMenuOption>();
+                foreach (WarRankTitleSet titleSet in WarRankTitles.AllSets)
                 {
-                    Settings.TitleSetId = titleSet.Id;
-                    Settings.Write();
+                    WarRankTitleSet chosen = titleSet; // capture a copy for the closure below
+                    options.Add(new FloatMenuOption(chosen.Label, delegate
+                    {
+                        Settings.TitleSetId = chosen.Id;
+                        Settings.Write();
+                    }));
                 }
+                Find.WindowStack.Add(new FloatMenu(options));
             }
 
             listing.Gap();
