@@ -1,4 +1,4 @@
-# War Ranks
+# WarRanks
 
 RimWorld 1.6 mod that gives colonists a 24-rank military prestige ladder based on their kills.
 They start as a Scout and grind their way up to Grand High Warlord. It's a riff on the old
@@ -28,7 +28,7 @@ your own is a single block (an id, a label, and 24 names) - there's a template i
 ## Install
 
 Put the `WarRanks` folder in your RimWorld `Mods` folder, then in the mod list enable Harmony
-above War Ranks. I will put it on steam soon.
+above WarRanks. I will put it on steam soon.
 
 ## Building
 

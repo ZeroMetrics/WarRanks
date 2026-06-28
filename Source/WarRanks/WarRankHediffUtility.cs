@@ -90,7 +90,7 @@ namespace WarRanks
 
             string title = WarRankTitles.TitleFor(newRank);
             Messages.Message(
-                pawn.LabelShortCap + " has reached War Rank " + newRank.Level + ": " + title + ".",
+                pawn.LabelShortCap + " has reached rank " + newRank.Level + ": " + title + ".",
                 pawn, MessageTypeDefOf.PositiveEvent, true);
         }
     }

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-  <name>War Ranks</name>
+  <name>WarRanks</name>
   <author>ZeroMetrics</author>
   <packageId>zerometrics.warranks</packageId>
   <supportedVersions><li>1.6</li></supportedVersions>

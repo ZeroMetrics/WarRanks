@@ -11,7 +11,7 @@
   <HediffDef>
     <defName>WarRank_Rank01</defName>
     <label>scout</label>
-    <description>Military prestige rank 1. Awarded automatically from recorded humanlike and mechanoid kills. Requires 5 relevant kills. The displayed title can be changed in War Ranks mod settings.</description>
+    <description>Military prestige rank 1. Awarded automatically from recorded humanlike and mechanoid kills. Requires 5 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -31,7 +31,7 @@
   <HediffDef>
     <defName>WarRank_Rank02</defName>
     <label>private</label>
-    <description>Military prestige rank 2. Awarded automatically from recorded humanlike and mechanoid kills. Requires 20 relevant kills. The displayed title can be changed in War Ranks mod settings.</description>
+    <description>Military prestige rank 2. Awarded automatically from recorded humanlike and mechanoid kills. Requires 20 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -51,7 +51,7 @@
   <HediffDef>
     <defName>WarRank_Rank03</defName>
     <label>corporal</label>
-    <description>Military prestige rank 3. Awarded automatically from recorded humanlike and mechanoid kills. Requires 45 relevant kills. The displayed title can be changed in War Ranks mod settings.</description>
+    <description>Military prestige rank 3. Awarded automatically from recorded humanlike and mechanoid kills. Requires 45 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -71,7 +71,7 @@
   <HediffDef>
     <defName>WarRank_Rank04</defName>
     <label>sergeant</label>
-    <description>Military prestige rank 4. Awarded automatically from recorded humanlike and mechanoid kills. Requires 80 relevant kills. The displayed title can be changed in War Ranks mod settings.</description>
+    <description>Military prestige rank 4. Awarded automatically from recorded humanlike and mechanoid kills. Requires 80 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -92,7 +92,7 @@
   <HediffDef>
     <defName>WarRank_Rank05</defName>
     <label>senior sergeant</label>
-    <description>Military prestige rank 5. Awarded automatically from recorded humanlike and mechanoid kills. Requires 125 relevant kills. The displayed title can be changed in War Ranks mod settings.</description>
+    <description>Military prestige rank 5. Awarded automatically from recorded humanlike and mechanoid kills. Requires 125 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -113,7 +113,7 @@
   <HediffDef>
     <defName>WarRank_Rank06</defName>
     <label>master sergeant</label>
-    <description>Military prestige rank 6. Awarded automatically from recorded humanlike and mechanoid kills. Requires 180 relevant kills. The displayed title can be changed in War Ranks mod settings.</description>
+    <description>Military prestige rank 6. Awarded automatically from recorded humanlike and mechanoid kills. Requires 180 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -134,7 +134,7 @@
   <HediffDef>
     <defName>WarRank_Rank07</defName>
     <label>stone guard</label>
-    <description>Military prestige rank 7. Awarded automatically from recorded humanlike and mechanoid kills. Requires 245 relevant kills. The displayed title can be changed in War Ranks mod settings.</description>
+    <description>Military prestige rank 7. Awarded automatically from recorded humanlike and mechanoid kills. Requires 245 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -156,7 +156,7 @@
   <HediffDef>
     <defName>WarRank_Rank08</defName>
     <label>blood guard</label>
-    <description>Military prestige rank 8. Awarded automatically from recorded humanlike and mechanoid kills. Requires 325 relevant kills. The displayed title can be changed in War Ranks mod settings.</description>
+    <description>Military prestige rank 8. Awarded automatically from recorded humanlike and mechanoid kills. Requires 325 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -178,7 +178,7 @@
   <HediffDef>
     <defName>WarRank_Rank09</defName>
     <label>knight</label>
-    <description>Military prestige rank 9. Awarded automatically from recorded humanlike and mechanoid kills. Requires 420 relevant kills. The displayed title can be changed in War Ranks mod settings.</description>
+    <description>Military prestige rank 9. Awarded automatically from recorded humanlike and mechanoid kills. Requires 420 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -200,7 +200,7 @@
   <HediffDef>
     <defName>WarRank_Rank10</defName>
     <label>knight-lieutenant</label>
-    <description>Military prestige rank 10. Awarded automatically from recorded humanlike and mechanoid kills. Requires 530 relevant kills. The displayed title can be changed in War Ranks mod settings.</description>
+    <description>Military prestige rank 10. Awarded automatically from recorded humanlike and mechanoid kills. Requires 530 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -222,7 +222,7 @@
   <HediffDef>
     <defName>WarRank_Rank11</defName>
     <label>knight-captain</label>
-    <description>Military prestige rank 11. Awarded automatically from recorded humanlike and mechanoid kills. Requires 660 relevant kills. The displayed title can be changed in War Ranks mod settings.</description>
+    <description>Military prestige rank 11. Awarded automatically from recorded humanlike and mechanoid kills. Requires 660 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -244,7 +244,7 @@
   <HediffDef>
     <defName>WarRank_Rank12</defName>
     <label>knight-champion</label>
-    <description>Military prestige rank 12. Awarded automatically from recorded humanlike and mechanoid kills. Requires 810 relevant kills. The displayed title can be changed in War Ranks mod settings.</description>
+    <description>Military prestige rank 12. Awarded automatically from recorded humanlike and mechanoid kills. Requires 810 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -274,7 +274,7 @@
   <HediffDef>
     <defName>WarRank_Rank13</defName>
     <label>centurion</label>
-    <description>Military prestige rank 13. Awarded automatically from recorded humanlike and mechanoid kills. Requires 980 relevant kills. The displayed title can be changed in War Ranks mod settings.</description>
+    <description>Military prestige rank 13. Awarded automatically from recorded humanlike and mechanoid kills. Requires 980 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -304,7 +304,7 @@
   <HediffDef>
     <defName>WarRank_Rank14</defName>
     <label>legionnaire</label>
-    <description>Military prestige rank 14. Awarded automatically from recorded humanlike and mechanoid kills. Requires 1165 relevant kills. The displayed title can be changed in War Ranks mod settings.</description>
+    <description>Military prestige rank 14. Awarded automatically from recorded humanlike and mechanoid kills. Requires 1165 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -334,7 +334,7 @@
   <HediffDef>
     <defName>WarRank_Rank15</defName>
     <label>champion</label>
-    <description>Military prestige rank 15. Awarded automatically from recorded humanlike and mechanoid kills. Requires 1365 relevant kills. The displayed title can be changed in War Ranks mod settings.</description>
+    <description>Military prestige rank 15. Awarded automatically from recorded humanlike and mechanoid kills. Requires 1365 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -364,7 +364,7 @@
   <HediffDef>
     <defName>WarRank_Rank16</defName>
     <label>lieutenant commander</label>
-    <description>Military prestige rank 16. Awarded automatically from recorded humanlike and mechanoid kills. Requires 1575 relevant kills. The displayed title can be changed in War Ranks mod settings.</description>
+    <description>Military prestige rank 16. Awarded automatically from recorded humanlike and mechanoid kills. Requires 1575 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -394,7 +394,7 @@
   <HediffDef>
     <defName>WarRank_Rank17</defName>
     <label>commander</label>
-    <description>Military prestige rank 17. Awarded automatically from recorded humanlike and mechanoid kills. Requires 1790 relevant kills. The displayed title can be changed in War Ranks mod settings.</description>
+    <description>Military prestige rank 17. Awarded automatically from recorded humanlike and mechanoid kills. Requires 1790 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -424,7 +424,7 @@
   <HediffDef>
     <defName>WarRank_Rank18</defName>
     <label>lieutenant general</label>
-    <description>Military prestige rank 18. Awarded automatically from recorded humanlike and mechanoid kills. Requires 2000 relevant kills. The displayed title can be changed in War Ranks mod settings.</description>
+    <description>Military prestige rank 18. Awarded automatically from recorded humanlike and mechanoid kills. Requires 2000 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -454,7 +454,7 @@
   <HediffDef>
     <defName>WarRank_Rank19</defName>
     <label>general</label>
-    <description>Military prestige rank 19. Awarded automatically from recorded humanlike and mechanoid kills. Requires 2200 relevant kills. The displayed title can be changed in War Ranks mod settings.</description>
+    <description>Military prestige rank 19. Awarded automatically from recorded humanlike and mechanoid kills. Requires 2200 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -484,7 +484,7 @@
   <HediffDef>
     <defName>WarRank_Rank20</defName>
     <label>marshal</label>
-    <description>Military prestige rank 20. Awarded automatically from recorded humanlike and mechanoid kills. Requires 2390 relevant kills. The displayed title can be changed in War Ranks mod settings.</description>
+    <description>Military prestige rank 20. Awarded automatically from recorded humanlike and mechanoid kills. Requires 2390 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -514,7 +514,7 @@
   <HediffDef>
     <defName>WarRank_Rank21</defName>
     <label>field marshal</label>
-    <description>Military prestige rank 21. Awarded automatically from recorded humanlike and mechanoid kills. Requires 2565 relevant kills. The displayed title can be changed in War Ranks mod settings.</description>
+    <description>Military prestige rank 21. Awarded automatically from recorded humanlike and mechanoid kills. Requires 2565 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -544,7 +544,7 @@
   <HediffDef>
     <defName>WarRank_Rank22</defName>
     <label>warlord</label>
-    <description>Military prestige rank 22. Awarded automatically from recorded humanlike and mechanoid kills. Requires 2725 relevant kills. The displayed title can be changed in War Ranks mod settings.</description>
+    <description>Military prestige rank 22. Awarded automatically from recorded humanlike and mechanoid kills. Requires 2725 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -574,7 +574,7 @@
   <HediffDef>
     <defName>WarRank_Rank23</defName>
     <label>high warlord</label>
-    <description>Military prestige rank 23. Awarded automatically from recorded humanlike and mechanoid kills. Requires 2875 relevant kills. The displayed title can be changed in War Ranks mod settings.</description>
+    <description>Military prestige rank 23. Awarded automatically from recorded humanlike and mechanoid kills. Requires 2875 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -604,7 +604,7 @@
   <HediffDef>
     <defName>WarRank_Rank24</defName>
     <label>grand high warlord</label>
-    <description>Military prestige rank 24. Awarded automatically from recorded humanlike and mechanoid kills. Requires 3000 relevant kills. The displayed title can be changed in War Ranks mod settings.</description>
+    <description>Military prestige rank 24. Awarded automatically from recorded humanlike and mechanoid kills. Requires 3000 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>

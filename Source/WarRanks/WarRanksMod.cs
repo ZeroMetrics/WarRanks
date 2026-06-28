@@ -22,7 +22,7 @@ namespace WarRanks
 
         public override string SettingsCategory()
         {
-            return "War Ranks";
+            return "WarRanks";
         }
 
         public override void DoSettingsWindowContents(Rect inRect)
