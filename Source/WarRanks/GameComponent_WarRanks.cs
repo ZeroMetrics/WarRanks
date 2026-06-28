@@ -113,9 +113,9 @@ namespace WarRanks
         private static void AnnouncePromotion(Pawn pawn, WarRank rank)
         {
             if (pawn == null || rank == null) return;
-            string title = WarRankTitles.TitleFor(rank);
-            Messages.Message(pawn.LabelShortCap + " has risen to the rank of " + title + ".",
-                pawn, MessageTypeDefOf.PositiveEvent, true);
+            // the message itself is faction-flavoured by the current title set.
+            string text = WarRankTitles.PromotionMessage(pawn.LabelShortCap, rank);
+            Messages.Message(text, pawn, MessageTypeDefOf.PositiveEvent, true);
         }
 
         // keep the tracking dictionary from pinning dead/destroyed pawns in memory forever.
