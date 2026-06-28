@@ -1,7 +1,6 @@
 # WarRanks
 
 RimWorld 1.6 mod that gives colonists a 24-rank military prestige ladder based on their kills.
-They start as a Scout and grind their way up to Grand High Warlord. It's a riff on the old
 PvP rank titles.
 
 ## How it works
