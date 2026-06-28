@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using RimWorld;
 using Verse;
 
@@ -8,45 +7,29 @@ namespace WarRanks
     // whether a pawn should be carrying ranks at all. nothing in here mutates a pawn.
     public static class WarRankUtility
     {
-        // the two vanilla kill records we count. resolved once and held - GetNamedSilentFail
-        // is a dictionary lookup we'd otherwise repeat for every pawn, every pass.
+        // every rank hediff is named "WarRank_Rank" + a two-digit level. we recognise our own
+        // hediffs straight off that, so detection can never depend on some lookup table having
+        // been built at the right moment.
+        private const string HediffDefPrefix = "WarRank_Rank";
+
+        // the two vanilla kill records we count. resolved once and held - GetNamedSilentFail is a
+        // dictionary lookup we'd otherwise repeat for every pawn, every pass.
         private static RecordDef killsHumanlikes;
         private static RecordDef killsMechanoids;
         private static bool recordsResolved;
 
-        // hediffDef -> rank, plus a quick "is this one of ours" set. both are built lazily the
-        // first time they're needed (well after defs have finished loading) so we can map a
-        // hediff straight back to its rank without re-scanning the 24-row table each call.
-        private static Dictionary<HediffDef, WarRank> rankByHediff;
-        private static HashSet<HediffDef> warRankHediffDefs;
-
-        private static void EnsureLookups()
-        {
-            if (rankByHediff != null) return;
-
-            rankByHediff = new Dictionary<HediffDef, WarRank>();
-            warRankHediffDefs = new HashSet<HediffDef>();
-
-            for (int i = 0; i < WarRankData.Ranks.Length; i++)
-            {
-                WarRank rank = WarRankData.Ranks[i];
-                HediffDef def = DefDatabase<HediffDef>.GetNamedSilentFail(rank.HediffDefName);
-                if (def == null) continue; // def file missing this row - skip it rather than blow up
-                rankByHediff[def] = rank;
-                warRankHediffDefs.Add(def);
-            }
-        }
-
         private static void EnsureRecords()
         {
+            // don't latch "resolved" until we actually found something, so an early call before the
+            // core defs are ready can't poison the cache.
             if (recordsResolved) return;
             killsHumanlikes = DefDatabase<RecordDef>.GetNamedSilentFail("KillsHumanlikes");
             killsMechanoids = DefDatabase<RecordDef>.GetNamedSilentFail("KillsMechanoids");
-            recordsResolved = true;
+            recordsResolved = killsHumanlikes != null || killsMechanoids != null;
         }
 
-        // humanlike + mechanoid kills straight off the pawn's record card. animals are left out
-        // on purpose so hunting and butchering for the larder don't quietly inflate ranks.
+        // humanlike + mechanoid kills straight off the pawn's record card. animals are left out on
+        // purpose so hunting and butchering for the larder don't quietly inflate ranks.
         public static int RelevantKills(Pawn pawn)
         {
             if (pawn == null || pawn.records == null) return 0;
@@ -72,19 +55,29 @@ namespace WarRanks
             return RankForKills(RelevantKills(pawn));
         }
 
-        public static WarRank RankForHediffDef(HediffDef hediffDef)
-        {
-            if (hediffDef == null) return null;
-            EnsureLookups();
-            WarRank rank;
-            return rankByHediff.TryGetValue(hediffDef, out rank) ? rank : null;
-        }
-
+        // is this hediff one of ours? answered purely from the defName, no state involved.
         public static bool IsWarRankHediffDef(HediffDef hediffDef)
         {
-            if (hediffDef == null) return false;
-            EnsureLookups();
-            return warRankHediffDefs.Contains(hediffDef);
+            return hediffDef != null && hediffDef.defName != null
+                && hediffDef.defName.StartsWith(HediffDefPrefix, System.StringComparison.Ordinal);
+        }
+
+        // map a rank hediff back to its rank by reading the level out of the defName.
+        public static WarRank RankForHediffDef(HediffDef hediffDef)
+        {
+            if (!IsWarRankHediffDef(hediffDef)) return null;
+
+            int level;
+            if (!int.TryParse(hediffDef.defName.Substring(HediffDefPrefix.Length), out level)) return null;
+
+            WarRank[] ranks = WarRankData.Ranks;
+            // fast path: the table is in level order, so the index usually lines up.
+            if (level >= 1 && level <= ranks.Length && ranks[level - 1].Level == level)
+                return ranks[level - 1];
+            // fallback in case the table is ever reordered.
+            for (int i = 0; i < ranks.Length; i++)
+                if (ranks[i].Level == level) return ranks[i];
+            return null;
         }
 
         // who's allowed to hold ranks: a spawned, living, humanlike member of the player faction

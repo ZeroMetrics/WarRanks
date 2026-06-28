@@ -1,17 +1,16 @@
 using System.Collections.Generic;
-using RimWorld;
 using Verse;
 
 namespace WarRanks
 {
     // the write side: make sure each eligible colonist carries exactly the one hediff for their
-    // current rank, and strip ranks off anyone who no longer qualifies.
+    // current rank, and strip ranks off anyone who no longer qualifies. announcing promotions is
+    // NOT done here - that's the game component's job, so it can decide once, based on an actual
+    // rank increase, rather than every time a hediff happens to get re-added.
     public static class WarRankHediffUtility
     {
         // bring a single pawn's rank hediff in line with their kill count.
-        // announce=false is used for the silent catch-up right after a save loads, so veterans
-        // don't flood the message log with "promotions" they actually earned hours ago.
-        public static void UpdatePawnRank(Pawn pawn, bool announce)
+        public static void SyncPawnRank(Pawn pawn)
         {
             if (!WarRankUtility.IsEligibleColonist(pawn))
             {
@@ -23,10 +22,6 @@ namespace WarRanks
             HediffDef desiredDef = desiredRank == null
                 ? null
                 : DefDatabase<HediffDef>.GetNamedSilentFail(desiredRank.HediffDefName);
-
-            // remember what they had first, so we can tell a real promotion from a no-op.
-            Hediff oldHediff = CurrentWarRankHediff(pawn);
-            WarRank oldRank = oldHediff == null ? null : WarRankUtility.RankForHediffDef(oldHediff.def);
 
             // one backward pass: hang on to the hediff we want if it's already there, drop every
             // other rank hediff. going backwards keeps RemoveHediff from shifting indices we've
@@ -46,10 +41,7 @@ namespace WarRanks
 
             // add the wanted rank if it wasn't already on them.
             if (desiredDef != null && existingDesired == null)
-            {
                 pawn.health.AddHediff(HediffMaker.MakeHediff(desiredDef, pawn));
-                if (announce) NotifyRankChanged(pawn, oldRank, desiredRank);
-            }
         }
 
         public static bool HasWarRank(Pawn pawn)
@@ -78,20 +70,6 @@ namespace WarRanks
                 if (WarRankUtility.IsWarRankHediffDef(hediffs[i].def))
                     pawn.health.RemoveHediff(hediffs[i]);
             }
-        }
-
-        // only shout about genuine promotions. demotions can't really happen (kills never go
-        // down), but the guard also covers the odd case where we already knew about an
-        // equal-or-higher rank and shouldn't re-announce it.
-        private static void NotifyRankChanged(Pawn pawn, WarRank oldRank, WarRank newRank)
-        {
-            if (pawn == null || newRank == null) return;
-            if (oldRank != null && oldRank.Level >= newRank.Level) return;
-
-            string title = WarRankTitles.TitleFor(newRank);
-            Messages.Message(
-                pawn.LabelShortCap + " has reached rank " + newRank.Level + ": " + title + ".",
-                pawn, MessageTypeDefOf.PositiveEvent, true);
         }
     }
 }
