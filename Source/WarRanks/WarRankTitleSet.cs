@@ -10,12 +10,14 @@ namespace WarRanks
         public readonly string Id;     // stable key saved in settings - don't rename once shipped
         public readonly string Label;  // what shows next to the radio button in mod options
         private readonly string[] titles; // 24 names, low rank to high; index = rank.Level - 1
+        private readonly string[] descriptions; // optional, same indexing as titles; null = use the def's generic text
 
-        public WarRankTitleSet(string id, string label, string[] titles)
+        public WarRankTitleSet(string id, string label, string[] titles, string[] descriptions = null)
         {
             Id = id;
             Label = label;
             this.titles = titles;
+            this.descriptions = descriptions;
         }
 
         // name for a given rank in this set. falls back to the rank's built-in name if the array
@@ -25,6 +27,15 @@ namespace WarRanks
             if (rank == null) return string.Empty;
             if (titles == null || rank.Level < 1 || rank.Level > titles.Length) return rank.Title;
             return titles[rank.Level - 1];
+        }
+
+        // flavour text for a rank in this set, or null if this set hasn't been written one yet
+        // (in which case the hediff just keeps its plain def description).
+        public string DescriptionFor(WarRank rank)
+        {
+            if (rank == null || descriptions == null) return null;
+            if (rank.Level < 1 || rank.Level > descriptions.Length) return null;
+            return descriptions[rank.Level - 1];
         }
     }
 
@@ -113,6 +124,35 @@ namespace WarRanks
                 "Deathbringer", "Scourge Captain", "Reaper", "Bonelord", "Deathlord's Hand",
                 "Frostbound Commander", "Champion of Acherus", "Rune Lord", "Lord of Bones",
                 "Herald of Death", "High Deathlord", "Wrath of Acherus", "The Lich King's Champion"
+            },
+            // the scourge arc: a corpse dragged back into service that slowly remembers how to
+            // kill, masters the death knight disciplines, then climbs to command the dead outright.
+            new[]
+            {
+                "Dragged back from death and bound in unliving service. No thought yet, only the Lich King's cold pull and a blade that never tires.",
+                "The first sparks of obedience. Set to guard the dead halls of Acherus, this one has learned to hold a line and to feel nothing while doing it.",
+                "Granted a runeblade and the first whispers of how to wield it. The weapon drinks what it kills, and slowly, so does its bearer.",
+                "Frost answers the call now. Wounds knit slower in those who face this one, the cold gnawing at them long after the strike.",
+                "Given a deathcharger and the freedom to range ahead of the host. Speed and a steel-shod skull make for an ugly first meeting.",
+                "Trusted to defend the Ebon Hold itself. Recognised among the dead now, if not yet feared by the living.",
+                "Has learned to carry the blight, spreading sickness with every blow and letting it do the slow killing afterward.",
+                "A student of the crimson arts, tearing the strength from the living to knit their own ruined flesh mid-battle.",
+                "Frost has become a discipline rather than a trick. Storms of ice herald this one's arrival, and the cold stays behind.",
+                "Commands the diseased and the risen. Where this knight walks, the freshly fallen stand back up to serve.",
+                "The runeblade is now an extension of the arm. Few among the Scourge can match this one's bladework.",
+                "No longer merely a soldier of death but a deliverer of it, sent wherever the Lich King wants a field emptied.",
+                "Given command over the lesser dead, a voice the ghouls and abominations obey without hesitation.",
+                "Counts the living as a harvest. Whole companies have been cut down and raised again under this one's watch.",
+                "Holds dominion over the bones of the slain, weaving them into guardians and weapons with a thought.",
+                "Trusted to act in a deathlord's stead. Orders this knight carries land with the deathlord's full weight behind them.",
+                "Leads frost-wreathed columns of the dead. Battlefields freeze solid where this commander chooses to deploy.",
+                "The chosen blade of the Ebon Hold, sent to settle the matters lesser knights cannot.",
+                "Master of the runes that bind power into steel and flesh alike. Even other death knights step aside.",
+                "An army of the dead answers this lord; the fallen of a hundred fields march at a single gesture.",
+                "Arrives ahead of the host as a warning given flesh. To see this herald is to learn the Scourge has already chosen you.",
+                "Among the highest of the Lich King's commanders, with whole legions of the risen at their command.",
+                "The Ebon Hold's fury made manifest, loosed only when the Lich King means to leave nothing standing.",
+                "The Frozen Throne's own chosen blade. No higher honour in death, and none colder, their will is the Lich King's, and the world ends where they point."
             }),
 
             new WarRankTitleSet("BlackEmpire", "Black Empire / Old Gods / Void", new[]
@@ -159,6 +199,12 @@ namespace WarRanks
         public static string TitleFor(WarRank rank)
         {
             return Current.TitleFor(rank);
+        }
+
+        // flavour text for the current set, or null to fall back to the def's generic description.
+        public static string DescriptionFor(WarRank rank)
+        {
+            return Current.DescriptionFor(rank);
         }
 
         public static IEnumerable<WarRankTitleSet> AllSets
