@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
   war rank hediffs, one def per rank (24 total).
-  these mirror the table in Source/WarRanks/WarRankData.cs - the c# side owns the
-  kill thresholds and decides who gets what, these defs own the actual buffs the game
-  applies. if you rebalance one, change the other to match.
-  the displayed name is set in code (Hediff_WarRank) so the title-set setting can swap
-  it live, which is why the stage deliberately carries no <label> of its own.
+  the kill thresholds live in Source/WarRanks/WarRankData.cs; these defs own the buffs
+  the game actually applies. a soldier's kit, phased in: low ranks toughen up, mid ranks
+  sharpen their aim and pick up armour, top ranks become elite. if you rebalance, this is
+  the file to touch (or regenerate it).
+  the displayed name comes from code (Hediff_WarRank) so the title-set setting can swap it
+  live, which is why the stage carries no <label> of its own.
 -->
 <Defs>
   <HediffDef>
     <defName>WarRank_Rank01</defName>
     <label>scout</label>
-    <description>Military prestige rank 1. Awarded automatically from recorded humanlike and mechanoid kills. Requires 5 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
+    <description>Military prestige rank 1. Awarded automatically from recorded humanlike and mechanoid kills. Requires 2 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -22,8 +23,13 @@
     <maxSeverity>1</maxSeverity>
     <stages>
       <li>
+        <statOffsets>
+          <ShootingAccuracyPawn>0.01</ShootingAccuracyPawn>
+          <MeleeHitChance>0.01</MeleeHitChance>
+        </statOffsets>
         <statFactors>
-          <SocialImpact>1.02</SocialImpact>
+          <PainShockThreshold>1.03</PainShockThreshold>
+          <MentalBreakThreshold>0.99</MentalBreakThreshold>
         </statFactors>
       </li>
     </stages>
@@ -31,7 +37,7 @@
   <HediffDef>
     <defName>WarRank_Rank02</defName>
     <label>private</label>
-    <description>Military prestige rank 2. Awarded automatically from recorded humanlike and mechanoid kills. Requires 20 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
+    <description>Military prestige rank 2. Awarded automatically from recorded humanlike and mechanoid kills. Requires 6 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -42,8 +48,13 @@
     <maxSeverity>1</maxSeverity>
     <stages>
       <li>
+        <statOffsets>
+          <ShootingAccuracyPawn>0.01</ShootingAccuracyPawn>
+          <MeleeHitChance>0.02</MeleeHitChance>
+        </statOffsets>
         <statFactors>
-          <SocialImpact>1.03</SocialImpact>
+          <PainShockThreshold>1.05</PainShockThreshold>
+          <MentalBreakThreshold>0.98</MentalBreakThreshold>
         </statFactors>
       </li>
     </stages>
@@ -51,7 +62,7 @@
   <HediffDef>
     <defName>WarRank_Rank03</defName>
     <label>corporal</label>
-    <description>Military prestige rank 3. Awarded automatically from recorded humanlike and mechanoid kills. Requires 45 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
+    <description>Military prestige rank 3. Awarded automatically from recorded humanlike and mechanoid kills. Requires 12 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -62,8 +73,13 @@
     <maxSeverity>1</maxSeverity>
     <stages>
       <li>
+        <statOffsets>
+          <ShootingAccuracyPawn>0.02</ShootingAccuracyPawn>
+          <MeleeHitChance>0.03</MeleeHitChance>
+        </statOffsets>
         <statFactors>
-          <SocialImpact>1.04</SocialImpact>
+          <PainShockThreshold>1.08</PainShockThreshold>
+          <MentalBreakThreshold>0.97</MentalBreakThreshold>
         </statFactors>
       </li>
     </stages>
@@ -71,7 +87,7 @@
   <HediffDef>
     <defName>WarRank_Rank04</defName>
     <label>sergeant</label>
-    <description>Military prestige rank 4. Awarded automatically from recorded humanlike and mechanoid kills. Requires 80 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
+    <description>Military prestige rank 4. Awarded automatically from recorded humanlike and mechanoid kills. Requires 20 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -82,9 +98,13 @@
     <maxSeverity>1</maxSeverity>
     <stages>
       <li>
+        <statOffsets>
+          <ShootingAccuracyPawn>0.02</ShootingAccuracyPawn>
+          <MeleeHitChance>0.03</MeleeHitChance>
+        </statOffsets>
         <statFactors>
-          <SocialImpact>1.05</SocialImpact>
-          <PainShockThreshold>1.02</PainShockThreshold>
+          <PainShockThreshold>1.10</PainShockThreshold>
+          <MentalBreakThreshold>0.96</MentalBreakThreshold>
         </statFactors>
       </li>
     </stages>
@@ -92,7 +112,7 @@
   <HediffDef>
     <defName>WarRank_Rank05</defName>
     <label>senior sergeant</label>
-    <description>Military prestige rank 5. Awarded automatically from recorded humanlike and mechanoid kills. Requires 125 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
+    <description>Military prestige rank 5. Awarded automatically from recorded humanlike and mechanoid kills. Requires 30 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -103,9 +123,13 @@
     <maxSeverity>1</maxSeverity>
     <stages>
       <li>
+        <statOffsets>
+          <ShootingAccuracyPawn>0.03</ShootingAccuracyPawn>
+          <MeleeHitChance>0.04</MeleeHitChance>
+        </statOffsets>
         <statFactors>
-          <SocialImpact>1.06</SocialImpact>
-          <PainShockThreshold>1.04</PainShockThreshold>
+          <PainShockThreshold>1.13</PainShockThreshold>
+          <MentalBreakThreshold>0.95</MentalBreakThreshold>
         </statFactors>
       </li>
     </stages>
@@ -113,7 +137,7 @@
   <HediffDef>
     <defName>WarRank_Rank06</defName>
     <label>master sergeant</label>
-    <description>Military prestige rank 6. Awarded automatically from recorded humanlike and mechanoid kills. Requires 180 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
+    <description>Military prestige rank 6. Awarded automatically from recorded humanlike and mechanoid kills. Requires 42 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -124,9 +148,13 @@
     <maxSeverity>1</maxSeverity>
     <stages>
       <li>
+        <statOffsets>
+          <ShootingAccuracyPawn>0.03</ShootingAccuracyPawn>
+          <MeleeHitChance>0.05</MeleeHitChance>
+        </statOffsets>
         <statFactors>
-          <SocialImpact>1.08</SocialImpact>
-          <PainShockThreshold>1.06</PainShockThreshold>
+          <PainShockThreshold>1.15</PainShockThreshold>
+          <MentalBreakThreshold>0.94</MentalBreakThreshold>
         </statFactors>
       </li>
     </stages>
@@ -134,7 +162,7 @@
   <HediffDef>
     <defName>WarRank_Rank07</defName>
     <label>stone guard</label>
-    <description>Military prestige rank 7. Awarded automatically from recorded humanlike and mechanoid kills. Requires 245 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
+    <description>Military prestige rank 7. Awarded automatically from recorded humanlike and mechanoid kills. Requires 56 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -145,10 +173,14 @@
     <maxSeverity>1</maxSeverity>
     <stages>
       <li>
+        <statOffsets>
+          <ShootingAccuracyPawn>0.04</ShootingAccuracyPawn>
+          <MeleeHitChance>0.06</MeleeHitChance>
+        </statOffsets>
         <statFactors>
-          <SocialImpact>1.09</SocialImpact>
-          <PainShockThreshold>1.08</PainShockThreshold>
-          <MentalBreakThreshold>0.99</MentalBreakThreshold>
+          <PainShockThreshold>1.18</PainShockThreshold>
+          <MentalBreakThreshold>0.93</MentalBreakThreshold>
+          <AimingDelayFactor>0.99</AimingDelayFactor>
         </statFactors>
       </li>
     </stages>
@@ -156,7 +188,7 @@
   <HediffDef>
     <defName>WarRank_Rank08</defName>
     <label>blood guard</label>
-    <description>Military prestige rank 8. Awarded automatically from recorded humanlike and mechanoid kills. Requires 325 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
+    <description>Military prestige rank 8. Awarded automatically from recorded humanlike and mechanoid kills. Requires 72 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -167,10 +199,14 @@
     <maxSeverity>1</maxSeverity>
     <stages>
       <li>
+        <statOffsets>
+          <ShootingAccuracyPawn>0.04</ShootingAccuracyPawn>
+          <MeleeHitChance>0.07</MeleeHitChance>
+        </statOffsets>
         <statFactors>
-          <SocialImpact>1.10</SocialImpact>
-          <PainShockThreshold>1.10</PainShockThreshold>
-          <MentalBreakThreshold>0.98</MentalBreakThreshold>
+          <PainShockThreshold>1.20</PainShockThreshold>
+          <MentalBreakThreshold>0.92</MentalBreakThreshold>
+          <AimingDelayFactor>0.98</AimingDelayFactor>
         </statFactors>
       </li>
     </stages>
@@ -178,7 +214,7 @@
   <HediffDef>
     <defName>WarRank_Rank09</defName>
     <label>knight</label>
-    <description>Military prestige rank 9. Awarded automatically from recorded humanlike and mechanoid kills. Requires 420 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
+    <description>Military prestige rank 9. Awarded automatically from recorded humanlike and mechanoid kills. Requires 90 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -189,10 +225,15 @@
     <maxSeverity>1</maxSeverity>
     <stages>
       <li>
+        <statOffsets>
+          <ShootingAccuracyPawn>0.05</ShootingAccuracyPawn>
+          <MeleeHitChance>0.08</MeleeHitChance>
+          <ArmorRating_Sharp>0.01</ArmorRating_Sharp>
+        </statOffsets>
         <statFactors>
-          <SocialImpact>1.12</SocialImpact>
-          <PainShockThreshold>1.12</PainShockThreshold>
-          <MentalBreakThreshold>0.97</MentalBreakThreshold>
+          <PainShockThreshold>1.23</PainShockThreshold>
+          <MentalBreakThreshold>0.91</MentalBreakThreshold>
+          <AimingDelayFactor>0.97</AimingDelayFactor>
         </statFactors>
       </li>
     </stages>
@@ -200,7 +241,7 @@
   <HediffDef>
     <defName>WarRank_Rank10</defName>
     <label>knight-lieutenant</label>
-    <description>Military prestige rank 10. Awarded automatically from recorded humanlike and mechanoid kills. Requires 530 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
+    <description>Military prestige rank 10. Awarded automatically from recorded humanlike and mechanoid kills. Requires 110 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -211,10 +252,15 @@
     <maxSeverity>1</maxSeverity>
     <stages>
       <li>
+        <statOffsets>
+          <ShootingAccuracyPawn>0.05</ShootingAccuracyPawn>
+          <MeleeHitChance>0.09</MeleeHitChance>
+          <ArmorRating_Sharp>0.02</ArmorRating_Sharp>
+        </statOffsets>
         <statFactors>
-          <SocialImpact>1.13</SocialImpact>
-          <PainShockThreshold>1.14</PainShockThreshold>
-          <MentalBreakThreshold>0.96</MentalBreakThreshold>
+          <PainShockThreshold>1.25</PainShockThreshold>
+          <MentalBreakThreshold>0.90</MentalBreakThreshold>
+          <AimingDelayFactor>0.96</AimingDelayFactor>
         </statFactors>
       </li>
     </stages>
@@ -222,7 +268,7 @@
   <HediffDef>
     <defName>WarRank_Rank11</defName>
     <label>knight-captain</label>
-    <description>Military prestige rank 11. Awarded automatically from recorded humanlike and mechanoid kills. Requires 660 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
+    <description>Military prestige rank 11. Awarded automatically from recorded humanlike and mechanoid kills. Requires 132 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -233,10 +279,15 @@
     <maxSeverity>1</maxSeverity>
     <stages>
       <li>
+        <statOffsets>
+          <ShootingAccuracyPawn>0.06</ShootingAccuracyPawn>
+          <MeleeHitChance>0.09</MeleeHitChance>
+          <ArmorRating_Sharp>0.03</ArmorRating_Sharp>
+        </statOffsets>
         <statFactors>
-          <SocialImpact>1.14</SocialImpact>
-          <PainShockThreshold>1.16</PainShockThreshold>
-          <MentalBreakThreshold>0.95</MentalBreakThreshold>
+          <PainShockThreshold>1.28</PainShockThreshold>
+          <MentalBreakThreshold>0.89</MentalBreakThreshold>
+          <AimingDelayFactor>0.94</AimingDelayFactor>
         </statFactors>
       </li>
     </stages>
@@ -244,7 +295,7 @@
   <HediffDef>
     <defName>WarRank_Rank12</defName>
     <label>knight-champion</label>
-    <description>Military prestige rank 12. Awarded automatically from recorded humanlike and mechanoid kills. Requires 810 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
+    <description>Military prestige rank 12. Awarded automatically from recorded humanlike and mechanoid kills. Requires 156 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -255,26 +306,23 @@
     <maxSeverity>1</maxSeverity>
     <stages>
       <li>
-        <statFactors>
-          <SocialImpact>1.16</SocialImpact>
-          <PainShockThreshold>1.19</PainShockThreshold>
-          <MentalBreakThreshold>0.94</MentalBreakThreshold>
-        </statFactors>
         <statOffsets>
-          <ShootingAccuracyPawn>0.02</ShootingAccuracyPawn>
-          <MeleeHitChance>0.02</MeleeHitChance>
+          <ShootingAccuracyPawn>0.06</ShootingAccuracyPawn>
+          <MeleeHitChance>0.10</MeleeHitChance>
+          <ArmorRating_Sharp>0.04</ArmorRating_Sharp>
         </statOffsets>
-        <capMods>
-          <li><capacity>Manipulation</capacity><offset>0.01</offset></li>
-          <li><capacity>Sight</capacity><offset>0.01</offset></li>
-        </capMods>
+        <statFactors>
+          <PainShockThreshold>1.30</PainShockThreshold>
+          <MentalBreakThreshold>0.87</MentalBreakThreshold>
+          <AimingDelayFactor>0.93</AimingDelayFactor>
+        </statFactors>
       </li>
     </stages>
   </HediffDef>
   <HediffDef>
     <defName>WarRank_Rank13</defName>
     <label>centurion</label>
-    <description>Military prestige rank 13. Awarded automatically from recorded humanlike and mechanoid kills. Requires 980 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
+    <description>Military prestige rank 13. Awarded automatically from recorded humanlike and mechanoid kills. Requires 182 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -285,26 +333,24 @@
     <maxSeverity>1</maxSeverity>
     <stages>
       <li>
-        <statFactors>
-          <SocialImpact>1.17</SocialImpact>
-          <PainShockThreshold>1.22</PainShockThreshold>
-          <MentalBreakThreshold>0.93</MentalBreakThreshold>
-        </statFactors>
         <statOffsets>
-          <ShootingAccuracyPawn>0.02</ShootingAccuracyPawn>
-          <MeleeHitChance>0.02</MeleeHitChance>
+          <ShootingAccuracyPawn>0.07</ShootingAccuracyPawn>
+          <MeleeHitChance>0.11</MeleeHitChance>
+          <ArmorRating_Sharp>0.05</ArmorRating_Sharp>
+          <MoveSpeed>0.03</MoveSpeed>
         </statOffsets>
-        <capMods>
-          <li><capacity>Manipulation</capacity><offset>0.02</offset></li>
-          <li><capacity>Sight</capacity><offset>0.01</offset></li>
-        </capMods>
+        <statFactors>
+          <PainShockThreshold>1.33</PainShockThreshold>
+          <MentalBreakThreshold>0.86</MentalBreakThreshold>
+          <AimingDelayFactor>0.92</AimingDelayFactor>
+        </statFactors>
       </li>
     </stages>
   </HediffDef>
   <HediffDef>
     <defName>WarRank_Rank14</defName>
     <label>legionnaire</label>
-    <description>Military prestige rank 14. Awarded automatically from recorded humanlike and mechanoid kills. Requires 1165 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
+    <description>Military prestige rank 14. Awarded automatically from recorded humanlike and mechanoid kills. Requires 210 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -315,26 +361,24 @@
     <maxSeverity>1</maxSeverity>
     <stages>
       <li>
-        <statFactors>
-          <SocialImpact>1.18</SocialImpact>
-          <PainShockThreshold>1.25</PainShockThreshold>
-          <MentalBreakThreshold>0.92</MentalBreakThreshold>
-        </statFactors>
         <statOffsets>
-          <ShootingAccuracyPawn>0.03</ShootingAccuracyPawn>
-          <MeleeHitChance>0.03</MeleeHitChance>
+          <ShootingAccuracyPawn>0.07</ShootingAccuracyPawn>
+          <MeleeHitChance>0.12</MeleeHitChance>
+          <ArmorRating_Sharp>0.06</ArmorRating_Sharp>
+          <MoveSpeed>0.06</MoveSpeed>
         </statOffsets>
-        <capMods>
-          <li><capacity>Manipulation</capacity><offset>0.02</offset></li>
-          <li><capacity>Sight</capacity><offset>0.02</offset></li>
-        </capMods>
+        <statFactors>
+          <PainShockThreshold>1.35</PainShockThreshold>
+          <MentalBreakThreshold>0.85</MentalBreakThreshold>
+          <AimingDelayFactor>0.91</AimingDelayFactor>
+        </statFactors>
       </li>
     </stages>
   </HediffDef>
   <HediffDef>
     <defName>WarRank_Rank15</defName>
     <label>champion</label>
-    <description>Military prestige rank 15. Awarded automatically from recorded humanlike and mechanoid kills. Requires 1365 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
+    <description>Military prestige rank 15. Awarded automatically from recorded humanlike and mechanoid kills. Requires 240 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -345,26 +389,24 @@
     <maxSeverity>1</maxSeverity>
     <stages>
       <li>
-        <statFactors>
-          <SocialImpact>1.20</SocialImpact>
-          <PainShockThreshold>1.28</PainShockThreshold>
-          <MentalBreakThreshold>0.91</MentalBreakThreshold>
-        </statFactors>
         <statOffsets>
-          <ShootingAccuracyPawn>0.03</ShootingAccuracyPawn>
-          <MeleeHitChance>0.03</MeleeHitChance>
+          <ShootingAccuracyPawn>0.08</ShootingAccuracyPawn>
+          <MeleeHitChance>0.13</MeleeHitChance>
+          <ArmorRating_Sharp>0.07</ArmorRating_Sharp>
+          <MoveSpeed>0.09</MoveSpeed>
         </statOffsets>
-        <capMods>
-          <li><capacity>Manipulation</capacity><offset>0.03</offset></li>
-          <li><capacity>Sight</capacity><offset>0.02</offset></li>
-        </capMods>
+        <statFactors>
+          <PainShockThreshold>1.38</PainShockThreshold>
+          <MentalBreakThreshold>0.84</MentalBreakThreshold>
+          <AimingDelayFactor>0.90</AimingDelayFactor>
+        </statFactors>
       </li>
     </stages>
   </HediffDef>
   <HediffDef>
     <defName>WarRank_Rank16</defName>
     <label>lieutenant commander</label>
-    <description>Military prestige rank 16. Awarded automatically from recorded humanlike and mechanoid kills. Requires 1575 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
+    <description>Military prestige rank 16. Awarded automatically from recorded humanlike and mechanoid kills. Requires 272 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -375,26 +417,24 @@
     <maxSeverity>1</maxSeverity>
     <stages>
       <li>
-        <statFactors>
-          <SocialImpact>1.21</SocialImpact>
-          <PainShockThreshold>1.31</PainShockThreshold>
-          <MentalBreakThreshold>0.90</MentalBreakThreshold>
-        </statFactors>
         <statOffsets>
-          <ShootingAccuracyPawn>0.04</ShootingAccuracyPawn>
-          <MeleeHitChance>0.04</MeleeHitChance>
+          <ShootingAccuracyPawn>0.08</ShootingAccuracyPawn>
+          <MeleeHitChance>0.14</MeleeHitChance>
+          <ArmorRating_Sharp>0.08</ArmorRating_Sharp>
+          <MoveSpeed>0.12</MoveSpeed>
         </statOffsets>
-        <capMods>
-          <li><capacity>Manipulation</capacity><offset>0.04</offset></li>
-          <li><capacity>Sight</capacity><offset>0.03</offset></li>
-        </capMods>
+        <statFactors>
+          <PainShockThreshold>1.40</PainShockThreshold>
+          <MentalBreakThreshold>0.83</MentalBreakThreshold>
+          <AimingDelayFactor>0.89</AimingDelayFactor>
+        </statFactors>
       </li>
     </stages>
   </HediffDef>
   <HediffDef>
     <defName>WarRank_Rank17</defName>
     <label>commander</label>
-    <description>Military prestige rank 17. Awarded automatically from recorded humanlike and mechanoid kills. Requires 1790 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
+    <description>Military prestige rank 17. Awarded automatically from recorded humanlike and mechanoid kills. Requires 306 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -405,26 +445,24 @@
     <maxSeverity>1</maxSeverity>
     <stages>
       <li>
-        <statFactors>
-          <SocialImpact>1.22</SocialImpact>
-          <PainShockThreshold>1.34</PainShockThreshold>
-          <MentalBreakThreshold>0.89</MentalBreakThreshold>
-        </statFactors>
         <statOffsets>
-          <ShootingAccuracyPawn>0.04</ShootingAccuracyPawn>
-          <MeleeHitChance>0.04</MeleeHitChance>
+          <ShootingAccuracyPawn>0.09</ShootingAccuracyPawn>
+          <MeleeHitChance>0.14</MeleeHitChance>
+          <ArmorRating_Sharp>0.09</ArmorRating_Sharp>
+          <MoveSpeed>0.15</MoveSpeed>
         </statOffsets>
-        <capMods>
-          <li><capacity>Manipulation</capacity><offset>0.04</offset></li>
-          <li><capacity>Sight</capacity><offset>0.04</offset></li>
-        </capMods>
+        <statFactors>
+          <PainShockThreshold>1.43</PainShockThreshold>
+          <MentalBreakThreshold>0.82</MentalBreakThreshold>
+          <AimingDelayFactor>0.88</AimingDelayFactor>
+        </statFactors>
       </li>
     </stages>
   </HediffDef>
   <HediffDef>
     <defName>WarRank_Rank18</defName>
     <label>lieutenant general</label>
-    <description>Military prestige rank 18. Awarded automatically from recorded humanlike and mechanoid kills. Requires 2000 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
+    <description>Military prestige rank 18. Awarded automatically from recorded humanlike and mechanoid kills. Requires 342 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -435,26 +473,24 @@
     <maxSeverity>1</maxSeverity>
     <stages>
       <li>
-        <statFactors>
-          <SocialImpact>1.24</SocialImpact>
-          <PainShockThreshold>1.37</PainShockThreshold>
-          <MentalBreakThreshold>0.88</MentalBreakThreshold>
-        </statFactors>
         <statOffsets>
-          <ShootingAccuracyPawn>0.05</ShootingAccuracyPawn>
-          <MeleeHitChance>0.05</MeleeHitChance>
+          <ShootingAccuracyPawn>0.09</ShootingAccuracyPawn>
+          <MeleeHitChance>0.15</MeleeHitChance>
+          <ArmorRating_Sharp>0.10</ArmorRating_Sharp>
+          <MoveSpeed>0.18</MoveSpeed>
         </statOffsets>
-        <capMods>
-          <li><capacity>Manipulation</capacity><offset>0.05</offset></li>
-          <li><capacity>Sight</capacity><offset>0.04</offset></li>
-        </capMods>
+        <statFactors>
+          <PainShockThreshold>1.45</PainShockThreshold>
+          <MentalBreakThreshold>0.81</MentalBreakThreshold>
+          <AimingDelayFactor>0.87</AimingDelayFactor>
+        </statFactors>
       </li>
     </stages>
   </HediffDef>
   <HediffDef>
     <defName>WarRank_Rank19</defName>
     <label>general</label>
-    <description>Military prestige rank 19. Awarded automatically from recorded humanlike and mechanoid kills. Requires 2200 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
+    <description>Military prestige rank 19. Awarded automatically from recorded humanlike and mechanoid kills. Requires 380 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -465,26 +501,24 @@
     <maxSeverity>1</maxSeverity>
     <stages>
       <li>
-        <statFactors>
-          <SocialImpact>1.25</SocialImpact>
-          <PainShockThreshold>1.40</PainShockThreshold>
-          <MentalBreakThreshold>0.87</MentalBreakThreshold>
-        </statFactors>
         <statOffsets>
-          <ShootingAccuracyPawn>0.06</ShootingAccuracyPawn>
-          <MeleeHitChance>0.06</MeleeHitChance>
+          <ShootingAccuracyPawn>0.10</ShootingAccuracyPawn>
+          <MeleeHitChance>0.16</MeleeHitChance>
+          <ArmorRating_Sharp>0.11</ArmorRating_Sharp>
+          <MoveSpeed>0.21</MoveSpeed>
         </statOffsets>
-        <capMods>
-          <li><capacity>Manipulation</capacity><offset>0.06</offset></li>
-          <li><capacity>Sight</capacity><offset>0.05</offset></li>
-        </capMods>
+        <statFactors>
+          <PainShockThreshold>1.48</PainShockThreshold>
+          <MentalBreakThreshold>0.80</MentalBreakThreshold>
+          <AimingDelayFactor>0.86</AimingDelayFactor>
+        </statFactors>
       </li>
     </stages>
   </HediffDef>
   <HediffDef>
     <defName>WarRank_Rank20</defName>
     <label>marshal</label>
-    <description>Military prestige rank 20. Awarded automatically from recorded humanlike and mechanoid kills. Requires 2390 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
+    <description>Military prestige rank 20. Awarded automatically from recorded humanlike and mechanoid kills. Requires 420 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -495,26 +529,24 @@
     <maxSeverity>1</maxSeverity>
     <stages>
       <li>
-        <statFactors>
-          <SocialImpact>1.27</SocialImpact>
-          <PainShockThreshold>1.43</PainShockThreshold>
-          <MentalBreakThreshold>0.86</MentalBreakThreshold>
-        </statFactors>
         <statOffsets>
-          <ShootingAccuracyPawn>0.07</ShootingAccuracyPawn>
-          <MeleeHitChance>0.07</MeleeHitChance>
+          <ShootingAccuracyPawn>0.10</ShootingAccuracyPawn>
+          <MeleeHitChance>0.17</MeleeHitChance>
+          <ArmorRating_Sharp>0.12</ArmorRating_Sharp>
+          <MoveSpeed>0.24</MoveSpeed>
         </statOffsets>
-        <capMods>
-          <li><capacity>Manipulation</capacity><offset>0.07</offset></li>
-          <li><capacity>Sight</capacity><offset>0.06</offset></li>
-        </capMods>
+        <statFactors>
+          <PainShockThreshold>1.50</PainShockThreshold>
+          <MentalBreakThreshold>0.79</MentalBreakThreshold>
+          <AimingDelayFactor>0.84</AimingDelayFactor>
+        </statFactors>
       </li>
     </stages>
   </HediffDef>
   <HediffDef>
     <defName>WarRank_Rank21</defName>
     <label>field marshal</label>
-    <description>Military prestige rank 21. Awarded automatically from recorded humanlike and mechanoid kills. Requires 2565 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
+    <description>Military prestige rank 21. Awarded automatically from recorded humanlike and mechanoid kills. Requires 462 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -525,26 +557,24 @@
     <maxSeverity>1</maxSeverity>
     <stages>
       <li>
-        <statFactors>
-          <SocialImpact>1.29</SocialImpact>
-          <PainShockThreshold>1.46</PainShockThreshold>
-          <MentalBreakThreshold>0.84</MentalBreakThreshold>
-        </statFactors>
         <statOffsets>
-          <ShootingAccuracyPawn>0.08</ShootingAccuracyPawn>
-          <MeleeHitChance>0.08</MeleeHitChance>
+          <ShootingAccuracyPawn>0.11</ShootingAccuracyPawn>
+          <MeleeHitChance>0.18</MeleeHitChance>
+          <ArmorRating_Sharp>0.13</ArmorRating_Sharp>
+          <MoveSpeed>0.27</MoveSpeed>
         </statOffsets>
-        <capMods>
-          <li><capacity>Manipulation</capacity><offset>0.08</offset></li>
-          <li><capacity>Sight</capacity><offset>0.07</offset></li>
-        </capMods>
+        <statFactors>
+          <PainShockThreshold>1.53</PainShockThreshold>
+          <MentalBreakThreshold>0.78</MentalBreakThreshold>
+          <AimingDelayFactor>0.83</AimingDelayFactor>
+        </statFactors>
       </li>
     </stages>
   </HediffDef>
   <HediffDef>
     <defName>WarRank_Rank22</defName>
     <label>warlord</label>
-    <description>Military prestige rank 22. Awarded automatically from recorded humanlike and mechanoid kills. Requires 2725 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
+    <description>Military prestige rank 22. Awarded automatically from recorded humanlike and mechanoid kills. Requires 506 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -555,26 +585,24 @@
     <maxSeverity>1</maxSeverity>
     <stages>
       <li>
-        <statFactors>
-          <SocialImpact>1.31</SocialImpact>
-          <PainShockThreshold>1.48</PainShockThreshold>
-          <MentalBreakThreshold>0.82</MentalBreakThreshold>
-        </statFactors>
         <statOffsets>
-          <ShootingAccuracyPawn>0.09</ShootingAccuracyPawn>
-          <MeleeHitChance>0.09</MeleeHitChance>
+          <ShootingAccuracyPawn>0.11</ShootingAccuracyPawn>
+          <MeleeHitChance>0.19</MeleeHitChance>
+          <ArmorRating_Sharp>0.14</ArmorRating_Sharp>
+          <MoveSpeed>0.30</MoveSpeed>
         </statOffsets>
-        <capMods>
-          <li><capacity>Manipulation</capacity><offset>0.09</offset></li>
-          <li><capacity>Sight</capacity><offset>0.08</offset></li>
-        </capMods>
+        <statFactors>
+          <PainShockThreshold>1.55</PainShockThreshold>
+          <MentalBreakThreshold>0.77</MentalBreakThreshold>
+          <AimingDelayFactor>0.82</AimingDelayFactor>
+        </statFactors>
       </li>
     </stages>
   </HediffDef>
   <HediffDef>
     <defName>WarRank_Rank23</defName>
     <label>high warlord</label>
-    <description>Military prestige rank 23. Awarded automatically from recorded humanlike and mechanoid kills. Requires 2875 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
+    <description>Military prestige rank 23. Awarded automatically from recorded humanlike and mechanoid kills. Requires 552 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -585,26 +613,24 @@
     <maxSeverity>1</maxSeverity>
     <stages>
       <li>
-        <statFactors>
-          <SocialImpact>1.33</SocialImpact>
-          <PainShockThreshold>1.49</PainShockThreshold>
-          <MentalBreakThreshold>0.81</MentalBreakThreshold>
-        </statFactors>
         <statOffsets>
-          <ShootingAccuracyPawn>0.09</ShootingAccuracyPawn>
-          <MeleeHitChance>0.09</MeleeHitChance>
+          <ShootingAccuracyPawn>0.12</ShootingAccuracyPawn>
+          <MeleeHitChance>0.20</MeleeHitChance>
+          <ArmorRating_Sharp>0.15</ArmorRating_Sharp>
+          <MoveSpeed>0.33</MoveSpeed>
         </statOffsets>
-        <capMods>
-          <li><capacity>Manipulation</capacity><offset>0.09</offset></li>
-          <li><capacity>Sight</capacity><offset>0.09</offset></li>
-        </capMods>
+        <statFactors>
+          <PainShockThreshold>1.58</PainShockThreshold>
+          <MentalBreakThreshold>0.76</MentalBreakThreshold>
+          <AimingDelayFactor>0.81</AimingDelayFactor>
+        </statFactors>
       </li>
     </stages>
   </HediffDef>
   <HediffDef>
     <defName>WarRank_Rank24</defName>
     <label>grand high warlord</label>
-    <description>Military prestige rank 24. Awarded automatically from recorded humanlike and mechanoid kills. Requires 3000 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
+    <description>Military prestige rank 24. Awarded automatically from recorded humanlike and mechanoid kills. Requires 600 relevant kills. The displayed title can be changed in WarRanks mod settings.</description>
     <hediffClass>WarRanks.Hediff_WarRank</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -615,19 +641,17 @@
     <maxSeverity>1</maxSeverity>
     <stages>
       <li>
-        <statFactors>
-          <SocialImpact>1.35</SocialImpact>
-          <PainShockThreshold>1.50</PainShockThreshold>
-          <MentalBreakThreshold>0.80</MentalBreakThreshold>
-        </statFactors>
         <statOffsets>
-          <ShootingAccuracyPawn>0.10</ShootingAccuracyPawn>
-          <MeleeHitChance>0.10</MeleeHitChance>
+          <ShootingAccuracyPawn>0.12</ShootingAccuracyPawn>
+          <MeleeHitChance>0.20</MeleeHitChance>
+          <ArmorRating_Sharp>0.16</ArmorRating_Sharp>
+          <MoveSpeed>0.36</MoveSpeed>
         </statOffsets>
-        <capMods>
-          <li><capacity>Manipulation</capacity><offset>0.10</offset></li>
-          <li><capacity>Sight</capacity><offset>0.10</offset></li>
-        </capMods>
+        <statFactors>
+          <PainShockThreshold>1.60</PainShockThreshold>
+          <MentalBreakThreshold>0.75</MentalBreakThreshold>
+          <AimingDelayFactor>0.80</AimingDelayFactor>
+        </statFactors>
       </li>
     </stages>
   </HediffDef>
