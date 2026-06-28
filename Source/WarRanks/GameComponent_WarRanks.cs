@@ -110,12 +110,26 @@ namespace WarRanks
             WarRankHediffUtility.SyncPawnRank(pawn);
         }
 
+        // from this rank up, a promotion is a big enough deal to warrant a full letter rather than
+        // the little corner message.
+        private const int LetterFromLevel = 5;
+
         private static void AnnouncePromotion(Pawn pawn, WarRank rank)
         {
             if (pawn == null || rank == null) return;
+
             // the message itself is faction-flavoured by the current title set.
             string text = WarRankTitles.PromotionMessage(pawn.LabelShortCap, rank);
-            Messages.Message(text, pawn, MessageTypeDefOf.PositiveEvent, true);
+
+            if (rank.Level >= LetterFromLevel)
+            {
+                string label = pawn.LabelShortCap + ": " + WarRankTitles.TitleFor(rank);
+                Find.LetterStack.ReceiveLetter(label, text, LetterDefOf.PositiveEvent, pawn);
+            }
+            else
+            {
+                Messages.Message(text, pawn, MessageTypeDefOf.PositiveEvent, true);
+            }
         }
 
         // keep the tracking dictionary from pinning dead/destroyed pawns in memory forever.
